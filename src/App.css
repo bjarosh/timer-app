@@ -1,0 +1,10 @@
+.timer {
+  .timer-input {
+    display: flex;
+
+    label {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}
