@@ -74,6 +74,9 @@ function App() {
           hours={hours}
           minutes={minutes}
           seconds={seconds}
+          setSeconds={setSeconds}
+          setMinutes={setMinutes}
+          setHours={setHours}
           increaseHours={increaseHours}
           decreaseHours={decreaseHours}
           increaseMinutes={increaseMinutes}
@@ -81,7 +84,9 @@ function App() {
           increaseSeconds={increaseSeconds}
           decreaseSeconds={decreaseSeconds}
         />
-        <TimeControl/>
+        <TimeControl
+          decreaseSeconds={decreaseSeconds}
+        />
       </div>
     </>
   )

@@ -2,6 +2,9 @@ type Props = {
 	hours: number;
 	minutes: number;
 	seconds: number;
+	setSeconds: (seconds: number) => void;
+	setMinutes: (minutes: number) => void;
+	setHours: (hours: number) => void;
 	increaseHours: () => void;
 	decreaseHours: () => void;
 	increaseMinutes: () => void;
@@ -10,7 +13,7 @@ type Props = {
 	decreaseSeconds: () => void;
 }
 
-export function TimerInput({hours, minutes, seconds, increaseHours, decreaseHours, increaseMinutes, decreaseMinutes, increaseSeconds, decreaseSeconds}: Props) {
+export function TimerInput({hours, minutes, seconds, setSeconds, setMinutes, setHours, increaseHours, decreaseHours, increaseMinutes, decreaseMinutes, increaseSeconds, decreaseSeconds}: Props) {
 	
 	
 	return (
