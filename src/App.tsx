@@ -86,6 +86,7 @@ function App() {
         />
         <TimeControl
           decreaseSeconds={decreaseSeconds}
+          seconds={seconds}
         />
       </div>
     </>
