@@ -10,21 +10,32 @@ export function TimeControl({decreaseSeconds, seconds}: Props) {
 
 	useEffect(() => {
 		let interval = null;
-		interval = setInterval(() => {
-			decreaseSeconds();
-		}, 1000)
-	}, [seconds]);
+		if (isActive) {
+			interval = setInterval(() => {
+				decreaseSeconds();
+			}, 1000);
+		}
+
+		return() => {
+			if (interval) clearInterval(interval);
+		}
+
+	}, [isActive, decreaseSeconds]);
 
 
 	const toggleTimer = () => {
 		setIsActive(!isActive);
 	};
+
+	const stopTimer = () => {
+		setIsActive(false);
+		set
+	}
 	
 	return (
 		<div className={'timer-control'}>
-			<button onClick={decreaseSeconds}> Start </button>
-			<button> Pause </button>
-			<button> Stop </button>
+			<button onClick={toggleTimer}> { isActive ? 'Pause' : 'Start' }</button>
+			<button onClick={stopTimer}> Stop </button>
 		</div>
 	);
 }

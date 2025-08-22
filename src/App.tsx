@@ -59,14 +59,7 @@ function App() {
       setSeconds(0);
     }
   }
-  
-  /*useEffect(() => {
-    const interval = setInterval(() => {
-    
-    });
-  })*/
-  
-  
+
   return (
     <>
       <div className={'timer'}>
