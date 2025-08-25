@@ -1,18 +1,19 @@
 import {useEffect, useState} from "react";
 
 type Props = {
-	decreaseSeconds: () => void;
-	seconds: number;
+	totalSeconds: number;
+	setTotalSeconds: (seconds: number) => void;
 }
 
-export function TimeControl({decreaseSeconds, seconds}: Props) {
+export function TimeControl({totalSeconds, setTotalSeconds}: Props) {
 	const [isActive, setIsActive] = useState(false);
 
 	useEffect(() => {
 		let interval = null;
 		if (isActive) {
 			interval = setInterval(() => {
-				decreaseSeconds();
+				if (totalSeconds <= 0) return;
+				setTotalSeconds(totalSeconds - 1);
 			}, 1000);
 		}
 
@@ -20,7 +21,7 @@ export function TimeControl({decreaseSeconds, seconds}: Props) {
 			if (interval) clearInterval(interval);
 		}
 
-	}, [isActive, decreaseSeconds]);
+	}, [isActive, totalSeconds, setTotalSeconds]);
 
 
 	const toggleTimer = () => {
@@ -29,7 +30,7 @@ export function TimeControl({decreaseSeconds, seconds}: Props) {
 
 	const stopTimer = () => {
 		setIsActive(false);
-		set
+		setTotalSeconds(0);
 	}
 	
 	return (
